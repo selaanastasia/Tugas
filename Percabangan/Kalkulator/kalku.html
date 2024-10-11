@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Sederhana dengan Alert</title>
+</head>
+<body>
+    <h2>Kalkulator Sederhana dengan Alert</h2>
+
+    <button onclick="calculate()">Mulai Kalkulator</button>
+
+    <script>
+        function calculate() {
+            // Meminta input dari pengguna melalui prompt
+            let num1 = parseFloat(prompt("Masukkan angka pertama:"));
+            let operator = prompt("Masukkan operator (+, -, *, /):");
+            let num2 = parseFloat(prompt("Masukkan angka kedua:"));
+            let result;
+
+            // Memastikan input valid
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Mohon masukkan angka yang valid.");
+                return;
+            }
+
+            // Melakukan perhitungan berdasarkan operator
+            if (operator === "+") {
+                result = num1 + num2;
+            } else if (operator === "-") {
+                result = num1 - num2;
+            } else if (operator === "*") {
+                result = num1 * num2;
+            } else if (operator === "/") {
+                if (num2 !== 0) {
+                    result = num1 / num2;
+                } else {
+                    alert("Tidak bisa membagi dengan 0.");
+                    return;
+                }
+            } else {
+                alert("Operator tidak valid.");
+                return;
+            }
+
+            // Menampilkan hasil di alert
+            alert("Hasil perhitungan: " + num1 + " " + operator + " " + num2 + " = " + result);
+        }
+    </script>
+</body>
+</html>
